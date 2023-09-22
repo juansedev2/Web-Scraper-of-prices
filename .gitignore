@@ -1,0 +1,5 @@
+# Directories that composer can generate in it's installation and doesn't need load in the git repository
+composer.phar
+/vendor/
+# OS or Editor folders
+Thumbs.db
