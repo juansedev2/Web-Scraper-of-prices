@@ -37,8 +37,10 @@ class StaticController extends BaseController{
             ];
         }
         dd($allNodes[1]->innertext); */
-        dd(AmazonScraper::scrapPage());
-        return static::returnView("Index");
+        $amazon_results = AmazonScraper::scrapPage();
+        return static::returnView("Index", [
+            "amazon_results" => $amazon_results
+        ]);
     }
     public function show404(){
         return static::returnView("404"); // Si exisitera...

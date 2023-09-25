@@ -9,3 +9,6 @@ div.container{
 div.container h1{
     margin: 50px 0;
 }
+h2.website-tittle{
+    text-align: initial !important;
+}

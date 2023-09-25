@@ -20,7 +20,7 @@ class AmazonScraper extends ScraperModel{
      * This function makes the scraping on the webpage
     */
     #Override
-    public static function scrapPage(){
+    public static function scrapPage(): array{
 
         static::concatProductWihtURL("pc+gamer");
         
@@ -38,14 +38,14 @@ class AmazonScraper extends ScraperModel{
             //$url = "https://www.amazon.com" . $url;
             $image = ($productNode->find("img")[0])->src ?? null;
             $price = ($productNode->find("span[class=a-offscreen]")[0]->plaintext) ?? null;
-            $delivery = ($productNode->find("div[class=a-row a-size-base a-color-secondary s-align-children-center]")[0]->plaintext) ?? null;
+            $delivery_date = ($productNode->find("div[class=a-row a-size-base a-color-secondary s-align-children-center]")[0]->plaintext) ?? null;
             $delivery_country = ($productNode->find("div[class=a-row a-size-base a-color-secondary s-align-children-center]")[1]->plaintext) ?? null;
             $allProducts[] = [
                 "tittle" => $tittle,
                 "url" => $url,
                 "image" => $image,
                 "price" => $price,
-                "delivery" => $delivery,
+                "delivery_date" => $delivery_date,
                 "delivery_country" => $delivery_country
             ];
         }
