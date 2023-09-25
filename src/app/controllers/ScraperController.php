@@ -6,7 +6,7 @@ use Jdev2\Webscraper\app\controllers\BaseController;
 
 class ScraperController extends BaseController{
 
-    public function returnScraping(){
+    /* public function returnScraping(){
         return AmazonScraper::scrapPage();
-    }
+    } */
 }
