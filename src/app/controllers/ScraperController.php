@@ -11,17 +11,17 @@ class ScraperController extends BaseController{
 
         $keywords = $_GET["keywords"] ?? null;
         
-        if(is_null($keywords)){
+        if(is_null($keywords) or empty($keywords)){
             return static::returnView("Index");
         }
 
         $mercadoLibre = new MercadoLibreScraper($keywords);
         $ebay = new EbayScraper($keywords);
 
-        if($_GET["order"] == "asc"){
+        if(isset($_GET["order"]) and $_GET["order"] == "asc"){
             $mercadoLibre->scrapPage()->orderUpward();
             $ebay->scrapPage()->orderUpward();;        
-        }else if($_GET["order"] == "dsc"){
+        }else if(isset($_GET["order"]) and $_GET["order"] == "dsc"){
             $mercadoLibre->scrapPage()->orderFalling();
             $ebay->scrapPage()->orderFalling();        
         }else{
