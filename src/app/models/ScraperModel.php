@@ -27,11 +27,15 @@ abstract class ScraperModel {
      * @var HtmlDocument $htmlDoc is the object that allows get specifics fragments and manipulate it of a complete HTML doc
     */
     protected HtmlDocument $htmlDoc;
-
+    /**
+     * @var array $results is the array that contains all of the results of the scraping
+    */
+    protected Array $results;
     public function __construct(string $product) {
         $this->product = $product;
         $this->htmlWeb = new HtmlWeb();
         $this-> htmlDoc = new HtmlDocument();
+        $this->results = [];
     }
 
     /**
@@ -52,6 +56,54 @@ abstract class ScraperModel {
         // This is better with this great function
         $this->product = "k=" . urlencode($this->product);
         $this->url_query = static::$url_base . $this->product;
+    }
+    /**
+     * This function returns the results of the scraping
+    */
+    public function getResults(): array{
+        return $this->results;
+    }
+    /**
+     * This function order the results by upward - ASC
+    */
+    public function orderUpward(): static{
+        
+        usort($this->results, function($productC, $productN){
+            
+            //$productC = Currently product and $productN = Next product
+            $productC = str_replace("US$", "", str_replace(',', '', $productC["price"]));  
+            $productN = str_replace("US$", "", str_replace(',', '', $productN["price"]));  
+            
+            $productC = floatval($productC);
+            $productN = floatval($productN);
+
+            if ($productC == $productN) {
+                return 0;
+            }
+            return ($productC < $productN) ? -1 : 1;
+        });
+
+        return $this;
+    }
+
+    public function orderFalling(): static{
+        
+        usort($this->results, function($productC, $productN){
+            
+            //$productC = Currently product and $productN = Next product
+            $productC = str_replace("US$", "", str_replace(',', '', $productC["price"]));  
+            $productN = str_replace("US$", "", str_replace(',', '', $productN["price"]));  
+            
+            $productC = floatval($productC);
+            $productN = floatval($productN);
+
+            if ($productC == $productN) {
+                return 0;
+            }
+            return ($productC > $productN) ? -1 : 1;
+        });
+
+        return $this;
     }
 
 

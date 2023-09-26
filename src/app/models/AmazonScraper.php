@@ -17,10 +17,9 @@ class AmazonScraper extends ScraperModel{
     /**
      * This function makes the scraping on the webpage
     */
-    public function scrapPage(): array{
+    public function scrapPage(): static{
 
         $this->concatProductWihtURL();
-
         $html = $this->htmlWeb->load($this->url_query); // Get all DOM of the specific web page
         $allNodes = $html->find("div[data-component-type]"); // Filter to an element and a specific attribute
         $allProducts = [];
@@ -46,7 +45,8 @@ class AmazonScraper extends ScraperModel{
         }
 
         static::deleteNullProducts($allProducts);
-        return $allProducts;        
+        $this->results = $allProducts;        
+        return $this;
     }
 
     protected function deleteNullProducts(&$array){
