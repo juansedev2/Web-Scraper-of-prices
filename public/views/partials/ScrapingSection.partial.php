@@ -11,7 +11,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title"><a target="_blank" href="https://www.amazon.com/<?=$result['url']?>"><?=$result['tittle']?></a></h5>
+                                    <h5 class="card-title"><a target="_blank" href="<?=$result['url']?>"><?=$result['tittle']?></a></h5>
                                     <p class="card-text">Precio: <?=$result['price']?></p>
                                 </div>
                             </div>
@@ -31,8 +31,8 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title"><a target="_blank" href="https://www.amazon.com/<?=$result['url']?>"><?=$result['tittle']?></a></h5>
-                                    <p class="card-text">Precio: <?=$result['price']?></p>
+                                    <h5 class="card-title"><a target="_blank" href="<?=$result['url']?>"><?=$result['tittle']?></a></h5>
+                                    <p class="card-text">Precio: COP<?=$result['price']?></p>
                                 </div>
                             </div>
                         </div>
