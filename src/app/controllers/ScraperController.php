@@ -8,12 +8,28 @@ use Jdev2\Webscraper\app\models\MercadoLibreScraper;
 class ScraperController extends BaseController{
 
     public function returnScraping(){
+
+        $keywords = $_GET["keywords"] ?? null;
         
-        $mercadoLibre = new MercadoLibreScraper("pc gamer");
-        $mercadoLibre->scrapPage();
+        if(is_null($keywords)){
+            return static::returnView("Index");
+        }
+
+        $mercadoLibre = new MercadoLibreScraper($keywords);
+        $ebay = new EbayScraper($keywords);
+
+        if($_GET["order"] == "asc"){
+            $mercadoLibre->scrapPage()->orderUpward();
+            $ebay->scrapPage()->orderUpward();;        
+        }else if($_GET["order"] == "dsc"){
+            $mercadoLibre->scrapPage()->orderFalling();
+            $ebay->scrapPage()->orderFalling();        
+        }else{
+            $mercadoLibre->scrapPage();
+            $ebay->scrapPage();
+        }
+
         $mercado_libre_results = $mercadoLibre->getResults();
-        $ebay = new EbayScraper("pc gamer");
-        $ebay->scrapPage();
         $ebay_results = $ebay->getResults();
 
         return static::returnView("Search", [

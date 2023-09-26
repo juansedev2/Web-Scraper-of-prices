@@ -75,8 +75,8 @@ class MercadoLibreScraper extends ScraperModel{
         usort($this->results, function($productC, $productN){
             
             //$productC = Currently product and $productN = Next product
-            $productC = str_replace("COP$", "", str_replace(' ', '', $productC["price"]));  
-            $productN = str_replace("COP$", "", str_replace(' ', '', $productN["price"]));  
+            $productC = str_replace("$", "", str_replace(' ', '', $productC["price"]));  
+            $productN = str_replace("$", "", str_replace(' ', '', $productN["price"]));  
             
             $productC = floatval($productC);
             $productN = floatval($productN);
