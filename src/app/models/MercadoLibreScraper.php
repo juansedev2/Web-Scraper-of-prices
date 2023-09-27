@@ -17,12 +17,17 @@ class MercadoLibreScraper extends ScraperModel{
     /**
      * This function makes the scraping on the webpage
     */
-    public function scrapPage(): static{
+    public function scrapPage(): static | bool{
 
         $this->concatProductWihtURL();
 
         $html = $this->htmlWeb->load($this->url_query); // Get all DOM of the specific web page
-        $allNodes = $html->find("ol.ui-search-layout li.ui-search-layout__item"); // Filter to an element and a specific attribute
+        try {
+            $allNodes = $html->find("ol.ui-search-layout li.ui-search-layout__item"); // Filter to an element and a specific attribute
+        } catch (\Throwable $th) {
+            //echo $th;
+            return false;
+        }
         $allProducts = [];        
 
         foreach ($allNodes as $node) {
