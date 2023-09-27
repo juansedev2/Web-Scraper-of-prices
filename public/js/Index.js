@@ -1,8 +1,9 @@
-// TODO: SUBIR REPO, AGREGAR MODAL DE INSTRUCCIONES DE COMO FUNCION Y RESTRICCIÓN
+// Get the inputs and the button
 const product_input = document.getElementById("product_input");
 const order_product = document.getElementById("order_product");
 const button_search = document.getElementById("button_search");
 
+// Empty data will be not send to search
 button_search.addEventListener("click" , (event) => {
     if(!validateInputs(product_input.value, order_product.value)){
         event.preventDefault();
