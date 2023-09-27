@@ -1,7 +1,7 @@
 <form action="search" method="GET">
     <div class="input-group input-group-lg">
         <input type="text" name="keywords" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Escribe lo que deseas buscar..." value="<?= $_GET["keywords"] ?? "" ?>" id="product_input" required>
-        <button type="submit" class="btn btn-light">Buscar</button>
+        <button type="submit" id="button_search" class="btn btn-light">Buscar</button>
     </div>
     <div class="m-3 w-25">
         <select class="form-select" id="order_product" aria-label="Default select example" name="order" required>
