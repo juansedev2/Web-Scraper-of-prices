@@ -22,8 +22,12 @@ class EbayScraper extends ScraperModel{
         $this->concatProductWihtURL();
 
         $html = $this->htmlWeb->load($this->url_query); // Get all DOM of the specific web page
-        $allNodes = $html->find("ul.srp-results li.s-item"); // Filter to an element and a specific attribute
         $allProducts = [];
+        try {
+            $allNodes = $html->find("ul.srp-results li.s-item"); // Filter to an element and a specific attribute
+        } catch (\Throwable $th) {
+            return false;
+        }
 
         foreach ($allNodes as $node) {
             $productNode = $this->htmlDoc->load($node); // Load an specific portion or new document since an existing DOM
