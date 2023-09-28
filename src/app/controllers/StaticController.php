@@ -12,8 +12,12 @@ class StaticController extends BaseController{
         return static::returnView("Index");
     }
 
+    public function show403(){
+        return static::returnView("403"); // View to 403 - forbidden
+    }
+
     public function show404(){
-        return static::returnView("404"); // Si exisitera...
+        return static::returnView("404"); // View to 404 - not found
     }
 
 }
