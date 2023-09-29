@@ -3,3 +3,5 @@ composer.phar
 /vendor/
 # OS or Editor folders
 Thumbs.db
+.htaccess
+docs/
