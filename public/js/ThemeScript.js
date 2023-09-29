@@ -12,9 +12,14 @@ toggleButton.addEventListener('click', (event) => {
     
     if (body.classList.contains('dark-mode')) {
         toggleButton.innerText = "Modo Claro";
-        // TODO: Cambiar el tema de botón
+        // Add the class light button style and remove the dark
+        toggleButton.classList.remove("btn-dark");
+        toggleButton.classList.add("btn-light");
     }else{
         toggleButton.innerText = "Modo Oscuro";
+        // Add the class dark button style and remove the light
+        toggleButton.classList.remove("btn-light");
+        toggleButton.classList.add("btn-dark");
     }
 });
 
