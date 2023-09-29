@@ -3,7 +3,7 @@
         <div class="col">
             <h2 class="website-tittle">Ebay</h2>
             <?php foreach ($ebay_results as $result):?>
-                <section id="scraping_results">
+                <section class="scraping_results">
                     <div class="card mb-3 p-4" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -23,7 +23,7 @@
         <div class="col">
             <h2 class="website-tittle">Mercado libre</h2>
             <?php foreach ($mercado_libre_results as $result):?>
-                <section id="scraping_results">
+                <section class="scraping_results">
                     <div class="card mb-3 p-4" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">

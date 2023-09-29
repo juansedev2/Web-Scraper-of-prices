@@ -1,3 +1,9 @@
+:root{
+    --dark-mode--background: #282727;
+    --dark-mode--background-input: rgba(0, 0, 0, 0.801);
+    --dark-mode--background-card: rgba(0, 0, 0, 0.866);
+    --dark-mode--tittle: white;
+}
 *{
     margin: 0;
     padding: 0;
@@ -14,4 +20,28 @@ h2.website-tittle{
 }
 div.m-3{
     margin: 10px 0 !important;
+}
+/*Since of dark mode, change the colors*/
+.dark-mode{
+    background-color: var(--dark-mode--background);
+}
+.dark-mode h1{
+    color: var(--dark-mode--tittle);
+}
+.dark-mode input#product_input{
+    background-color: var(--dark-mode--background-input);
+    color: var(--dark-mode--tittle);
+}
+.dark-mode select{
+    background-color: var(--dark-mode--background-input);
+    color: var(--dark-mode--tittle);
+}
+.dark-mode .website-tittle{
+    color: var(--dark-mode--tittle);
+}
+.dark-mode div.container div.col section.scraping_results div.card{
+    background-color: var(--dark-mode--background-card);
+}
+.dark-mode p.card-text{
+    color: var(--dark-mode--tittle) !important;
 }

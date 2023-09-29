@@ -2,6 +2,9 @@
     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Instrucciones y avisos
     </button>
+    <button type="button" class="btn btn-dark" id="toggleMode" value="light">
+        Modo oscuro
+    </button>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

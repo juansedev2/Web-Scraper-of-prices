@@ -1,4 +1,5 @@
 // Get the inputs and the button
+"use strict";
 const product_input = document.getElementById("product_input");
 const order_product = document.getElementById("order_product");
 const button_search = document.getElementById("button_search");
