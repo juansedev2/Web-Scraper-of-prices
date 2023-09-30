@@ -1,15 +1,62 @@
 
-# Rama Master
+# Rama Production (Producción)
 
 ---
 
-## Proceso de instalación y prueba rápida en desarrollo: Por favor ve a la rama de develop para ver la documentación
+## Proceso de instalación y prueba rápida en producción
 
-[Rama develop](https://github.com/juansedev2/Web-Scraper-of-prices/tree/develop)
+**Esta es la versión de producción v1.0** y para poder instalarla, dependerá del servidor donde lo deseas probar. Concretamente si lo que necesitas es probar en uno de tipo Apache por ejemplo, se puede utilizar un dominio local para hacer pruebas de simulación como por ejemplo con un host virtual.
 
-## Proceso de instalación y prueba rápida en producción: Por favor ve a la rama de production para ver la documentación
+Para ello por favor seguir los siguientes pasos (PARA APACHE CON XAMPP):
 
-[Rama production](https://github.com/juansedev2/Web-Scraper-of-prices/tree/production)
+- Crear un dominio local:
+
+Accede al archivo de hosts como administrador, que en Windows está ubicado en: C:\Windows\System32\drivers\etc como administrador y allí modificar el archivo de texto llamado: hosts.
+
+Agrega un dominio local después del siguiente que haya registrado:
+
+```conf
+127.0.0.1 nombre_dominio.test    (reemplaza nombre_dominio)
+```
+
+Por ejemplo:
+
+```conf
+127.0.0.1 pricescraper.test
+```
+
+**Advertencia: NO** uses dominios terminados en .com, puede dar lugar a problemas/colisiones
+
+- Encender el programa XAMPP y encender el servidor Apache:
+
+- Agregar un host virtual:
+
+En este paso debes seleccionar el directorio donde alojaste la aplicación, la cual debes cargarla en el servidor, es decir desde el directorio del mismo: "C:/xampp/htdocs", luego acceder al archivo httpd-vhosts.conf que en Windows está en el direcotorio: C:\xampp\apache\conf\extra, editarlo y agregar un host virtual:
+
+```conf
+    <VirtualHost *:80>
+        DocumentRoot "C:/xampp/htdocs/"
+        ServerName localhost
+    </VirtualHost>
+    <VirtualHost *:80>
+        DocumentRoot "C:/xampp/htdocs/Proyectos/WebScraper"
+        ServerName appusers.test
+    </VirtualHost>.1 pricescraper.test
+```
+
+**_Proyectos es solo un directorio personal, puede ser otro diferente_**
+
+- Apagar el servicio Apache y reiniciarlo (o incluso reiniciar XAMPP), luego volver a acceder
+
+- Acceder vía navegador web a la aplicación de acuerdo al nobmre del servidor via URL, que según el ejemplo, sería
+
+```conf
+    http://pricescraper.test
+```
+
+- Si finalmente todo ha salido bien, debes poder acceder a la vista inicial de la aplicación
+
+**Ante cualquier novedad que presentes o tengas alguna duda, puede enviarme un mensaje a infojuansedev2@gmail.com.**
 
 ## Versión del proyecto v1.0
 
