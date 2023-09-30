@@ -1,21 +1,11 @@
 
-# Rama de desarrollo
+# Rama Master
 
 ---
 
-## Proceso de instalación y prueba rápida en desarrollo
+## Proceso de instalación y prueba rápida en desarrollo: Por favor ve a la rama de develop para ver la documentación
 
-1. Descarga del proyecto con git clone o con descarga en versión Zip
-1. Instalar las dependencias con el comando composer install en la raíz del proyecto
-1. Desplegar el servidor con:
-
-```conf
-    php -S localhost:3000 ó php -S 127.0.0.1:3000
-```
-
-Luego ir al navegador web a esa dirección y probar
-
----
+## Proceso de instalación y prueba rápida en producción: Por favor ve a la rama de production para ver la documentación
 
 ## Versión del proyecto v1.0
 
